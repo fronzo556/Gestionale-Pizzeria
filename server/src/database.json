@@ -1,0 +1,192 @@
+{
+  "utenti": [
+    {
+      "id": 1,
+      "username": "boss",
+      "password": "123",
+      "role": "boss",
+      "nome": "Capo Supremo",
+      "orario": "Sempre"
+    },
+    {
+      "id": 1769781662524,
+      "nome": "michele",
+      "username": "fron",
+      "password": "Luigi.2011",
+      "role": "fattorino",
+      "orario": "17:00 - 22:30"
+    },
+    {
+      "id": 1769781915866,
+      "nome": "antonio",
+      "username": "anto",
+      "password": "Luigi.2011",
+      "role": "fattorino",
+      "orario": "19:00 - 21:30"
+    },
+    {
+      "id": 1769781929682,
+      "nome": "giacomo",
+      "username": "giack",
+      "password": "Luigi.2011",
+      "role": "fattorino",
+      "orario": "19:00 - 21:30"
+    },
+    {
+      "id": 1769781949199,
+      "nome": "simone",
+      "username": "simo",
+      "password": "Luigi.2011",
+      "role": "pizzaiolo/cassiere",
+      "orario": "Turno Pizzaiolo/Cassiere"
+    },
+    {
+      "id": 1769781966815,
+      "nome": "davide",
+      "username": "dave",
+      "password": "Luigi.2011",
+      "role": "pizzaiolo/cassiere",
+      "orario": "Turno Pizzaiolo/Cassiere"
+    },
+    {
+      "id": 1769781983481,
+      "nome": "dorian",
+      "username": "baboshi",
+      "password": "Luigi.2011",
+      "role": "pizzaiolo/cassiere",
+      "orario": "Turno Pizzaiolo/Cassiere"
+    },
+    {
+      "id": 1769782004498,
+      "nome": "martina",
+      "username": "marti",
+      "password": "Luigi.2011",
+      "role": "fattorino",
+      "orario": "17:00 - 22:30"
+    },
+    {
+      "id": 1769782013281,
+      "nome": "giulia",
+      "username": "bons",
+      "password": "Luigi.2011",
+      "role": "fattorino",
+      "orario": "17:00 - 22:30"
+    },
+    {
+      "id": 1769782042698,
+      "nome": "giulia",
+      "username": "giuli",
+      "password": "Luigi.2011",
+      "role": "fattorino",
+      "orario": "17:00 - 22:30"
+    },
+    {
+      "id": 1769782058082,
+      "nome": "michael",
+      "username": "miki",
+      "password": "Luigi.2011",
+      "role": "pizzaiolo/cassiere",
+      "orario": "Turno Pizzaiolo/Cassiere"
+    },
+    {
+      "id": 1769782083497,
+      "nome": "alessio",
+      "username": "alessio",
+      "password": "Luigi.2011",
+      "role": "pizzaiolo/cassiere",
+      "orario": "Turno Pizzaiolo/Cassiere"
+    },
+    {
+      "id": 1769782095964,
+      "nome": "alessandro",
+      "username": "sandro",
+      "password": "Luigi.2011",
+      "role": "fattorino",
+      "orario": "17:00 - 22:30"
+    },
+    {
+      "id": 1769784792567,
+      "nome": "filippo",
+      "username": "filo",
+      "password": "Luigi.2011",
+      "role": "pizzaiolo",
+      "orario": "Turno Pizzaiolo/Cassiere"
+    }
+  ],
+  "assenze": [
+    {
+      "userId": 1769782042698,
+      "day": "2026-03-01"
+    },
+    {
+      "userId": 1769782042698,
+      "day": "2026-03-02"
+    },
+    {
+      "userId": 1769782042698,
+      "day": "2026-03-10"
+    },
+    {
+      "userId": 1769782042698,
+      "day": "2026-03-11"
+    },
+    {
+      "userId": 1769782042698,
+      "day": "2026-03-19"
+    },
+    {
+      "userId": 1769782042698,
+      "day": "2026-03-25"
+    },
+    {
+      "userId": 1769782042698,
+      "day": "2026-03-03"
+    },
+    {
+      "userId": 1769782042698,
+      "day": "2026-03-05"
+    }
+  ],
+  "turni": [
+    {
+      "day": "2026-03-03",
+      "userId": 1769781662524,
+      "pizzeriaIndex": 1
+    },
+    {
+      "day": "2026-03-04",
+      "userId": 1769782058082,
+      "pizzeriaIndex": 0
+    },
+    {
+      "day": "2026-03-04",
+      "userId": 1769782083497,
+      "pizzeriaIndex": 1
+    },
+    {
+      "day": "2026-03-04",
+      "userId": 1769781983481,
+      "pizzeriaIndex": 1
+    },
+    {
+      "day": "2026-03-04",
+      "userId": 1769782013281,
+      "pizzeriaIndex": 1
+    },
+    {
+      "day": "2026-03-04",
+      "userId": 1769782004498,
+      "pizzeriaIndex": 2
+    },
+    {
+      "day": "2026-03-04",
+      "userId": 1769782042698,
+      "pizzeriaIndex": 2
+    },
+    {
+      "day": "2026-03-04",
+      "userId": 1769781929682,
+      "pizzeriaIndex": 0
+    }
+  ]
+}
