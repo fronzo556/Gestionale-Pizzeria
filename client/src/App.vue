@@ -14,8 +14,7 @@ const regPass = ref('')
 const setupRole = ref('') 
 const setupOrario = ref('') 
 
-// --- NUOVO STATO: VISTA BOSS ---
-// 'calendar' = turni, 'staff' = licenziamenti
+
 const bossView = ref('calendar')
 
 // --- STATO CALENDARIO ---
@@ -36,7 +35,7 @@ function getNomeGiorno(giorno: number) {
   return nome.charAt(0).toUpperCase() + nome.slice(1) 
 }
 
-// --- 🔐 LOGICA DI BLOCCO TEMPORALE ---
+//  LOGICA DI BLOCCO TEMPORALE 
 const isLockedForEmployee = computed(() => {
   if (!user.value || user.value.role === 'boss') return false 
 
@@ -85,7 +84,7 @@ const giornoSelezionatoBoss = ref<number | null>(null)
 const assenzeLocali = ref<string[]>([])
 const modificheNonSalvate = ref(false)
 
-// --- API ---
+//  API 
 async function login() {
   if (!username.value || !password.value) return alert("Inserisci username e password!")
   try {
@@ -168,7 +167,7 @@ async function salvaDisponibilita() {
   alert("✅ Disponibilità salvata!")
 }
 
-// --- FUNZIONI CONTROLLO VISIVO CALENDARIO ---
+// FUNZIONI CONTROLLO VISIVO CALENDARIO
 function isRosso(giorno: number) {
   if (user.value.role === 'boss') return false 
   return assenzeLocali.value.includes(getDataKey(giorno))
@@ -185,7 +184,7 @@ function isGiornoGestitoBoss(giorno: number) {
   return turniDB.value.some(t => t.day === dateKey)
 }
 
-// --- FUNZIONI BOSS ---
+// FUNZIONI BOSS 
 function getStaffDisponibile(role: string) {
   const dateKey = getDataKey(giornoSelezionatoBoss.value!)
   return utentiDB.value.filter(u => u.role === role && !assenzeDB.value.some(a => a.userId === u.id && a.day === dateKey))
@@ -214,7 +213,7 @@ async function salvaTurniBoss() {
   await loadData() 
 }
 
-// --- FUNZIONE LICENZIAMENTO (SPOSTATA NELLA VISTA DEDICATA) ---
+//  FUNZIONE LICENZIAMENTO 
 async function licenziaUtente(userId: number, nomeUtente: string) {
   if (confirm(`⚠️ ATTENZIONE: Vuoi licenziare e rimuovere per sempre "${nomeUtente}"?`)) {
     await fetch('http://127.0.0.1:3000/delete-user', {
@@ -234,14 +233,14 @@ async function licenziaUtente(userId: number, nomeUtente: string) {
 
     <div v-if="!user" class="auth-container">
       <div v-if="!isRegistering" class="card pomodoro-card">
-        <h2>🔐 Accesso Staff</h2>
+        <h2>FREE_PIZZA</h2>
         <input v-model="username" placeholder="Username" @keyup.enter="login" />
         <input v-model="password" type="password" placeholder="Password" @keyup.enter="login" />
         <button @click="login" class="big-btn basilico-btn">ACCEDI</button>
         <p class="link" @click="isRegistering = true">Non hai un account? <b>Registrati qui</b></p>
       </div>
       <div v-else class="card pomodoro-card">
-        <h2>📝 Nuovo Profilo</h2>
+        <h2>Nuovo Dipendente</h2>
         <input v-model="regNome" placeholder="Il tuo Nome" />
         <input v-model="regUser" placeholder="Scegli Username" />
         <input v-model="regPass" type="password" placeholder="Scegli Password" />
@@ -382,11 +381,10 @@ async function licenziaUtente(userId: number, nomeUtente: string) {
 </template>
 
 <style scoped>
-/* --- COLORI PIZZA ORIGINALI --- */
+
 .app { font-family: sans-serif; max-width: 900px; margin: 0 auto; text-align: center; color: #000000; padding-bottom: 50px; }
 .main-title { color: #7e1414; margin-top: 30px; font-weight: bold; }
-
-/* LOGIN & SETUP */
+/* LOGIN E SETUP  */
 .pomodoro-card { 
   background-color: #7e1414 !important; 
   padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.4);
@@ -401,7 +399,7 @@ input, select {
 .big-btn.basilico-btn { background-color: #18703d !important; color: #000000 !important; font-size: 1.3rem; padding: 15px; width: 100%; margin-top: 20px; font-weight: bold; cursor: pointer; border: none; border-radius: 5px;}
 .link { color: #000000 !important; text-decoration: underline; cursor: pointer; margin-top: 20px; display: block; font-weight: bold;}
 
-/* HEADER & TOOLBAR */
+
 .crust-bar { background-color: #e29c5a !important; color: #000000 !important; font-weight: bold; }
 .header-bar { display: flex; justify-content: space-between; align-items: center; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
 .badge { background: #7e1414; color: #ffffff; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem; margin-left: 5px; }
@@ -414,18 +412,18 @@ input, select {
 .toolbar-content { display: flex; justify-content: space-between; align-items: center; }
 .lock-msg { color: #000000; font-weight: bold; background: rgba(255,255,255,0.7); padding: 5px; border-radius: 5px;}
 
-/* BOSS MENU STYLES */
+/* STILE MENU BOSS */
 .boss-nav { display: flex; gap: 10px; justify-content: center; margin-bottom: 15px; border-bottom: 2px solid #000; padding-bottom: 5px;}
 .nav-btn-boss { padding: 10px 20px; font-weight: bold; cursor: pointer; border: none; background: transparent; font-size: 1rem; color: #000;}
 .nav-btn-boss.active-tab { border-bottom: 4px solid #7e1414; color: #7e1414;}
 
-/* STAFF VIEW STYLES */
+/* VISIONE STAFF */
 .staff-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 15px;}
 .staff-card-box { background: #fff; border: 2px solid #e29c5a; padding: 15px; border-radius: 8px; display: flex; flex-direction: column; justify-content: space-between; text-align: left; box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
 .staff-info h3 { margin: 0 0 10px 0; color: #7e1414; border-bottom: 1px solid #ccc; padding-bottom: 5px;}
 .staff-info p { margin: 5px 0; font-size: 0.9rem; color: #000;}
 
-/* TASTO LICENZIA GRANDE */
+/* TASTO LICENZIA */
 .trash-btn-big { margin-top: 15px; background: #7e1414; color: white; border: none; padding: 10px; width: 100%; border-radius: 5px; font-weight: bold; cursor: pointer;}
 .trash-btn-big:hover { background: #990000; }
 
@@ -456,7 +454,7 @@ input, select {
 .pizzerie-container { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;}
 .pizzeria-col { flex: 1; min-width: 250px; border: 1px solid #ccc; padding: 15px; background: #fffcfc; border-radius: 8px;}
 
-/* Bottoni Staff (Row) */
+/* Bottoni Staff  */
 .staff-row { display: flex; align-items: center; justify-content: center; gap: 5px; margin: 3px 0; }
 .role-group button { background: #eee; color: #000000; padding: 8px 12px; border: 1px solid #ccc; border-radius: 5px; cursor: pointer; font-weight: bold; flex-grow: 1;}
 .active { background-color: #27ae60 !important; color: #000000 !important; transform: scale(1.05); border: 2px solid #1e8449 !important;}

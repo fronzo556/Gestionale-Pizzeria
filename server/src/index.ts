@@ -73,8 +73,8 @@ app.post('/register', (req, res) => {
     nome,
     username,
     password,
-    role: 'nuovo', // <--- FONDAMENTALE: Forza il setup al primo avvio
-    orario: ''     // <--- Vuoto per ora
+    role: 'nuovo', //  FONDAMENTALE: Forza il setup al primo avvio
+    orario: ''     // Vuoto per ora
   };
 
   dati.utenti.push(newUser);
